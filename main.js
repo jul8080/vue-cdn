@@ -4,6 +4,13 @@ createApp({
         return {
             editPost: null,
             posts: [],
+            firstName: 'Jul',
+            lastName: 'Punding'
+        }
+    },
+    computed: {
+        fullName() {
+            return `${this.firstName} ${this.lastName}`
         }
     },
     methods: {
@@ -41,7 +48,7 @@ createApp({
     template: `
     <div>
         <li v-for="post, i in posts">
-        <div v-if="editPost === post.id"><input v-on:keyup.13="updatePost(post)" v-model="post.title"/> <button @click="updatePost(post)">save</button></div>
+        <div v-if="editPost === post.id"><input v-on:keyup.enter="updatePost(post)" v-model="post.title"/> <button @click="updatePost(post)">save</button></div>
 
         <div v-else>
         {{ post.title }} 
@@ -49,6 +56,8 @@ createApp({
         <button @click="deletePost(post.id, i)">Delete</button>
         </div>
         </li>
+        <h2>Fullname: {{ firstName }} {{ lastName }}</h2>
+        <h2>Computed Fullname: {{ fullName }}</h2>
     </div>
     `
   }).mount('#app')
