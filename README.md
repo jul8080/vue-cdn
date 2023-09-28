@@ -1,4 +1,4 @@
-#Using Vue from CDN
+# Using Vue from CDN
 You can use Vue directly from a CDN via a script tag:
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
